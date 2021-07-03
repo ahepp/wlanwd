@@ -1,0 +1,10 @@
+[Unit]
+Description=wlanwd access point
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+RemainAfterExit=yes
+ExecStart=/usr/share/wlanwd/enter-ap-mode.sh
+ExecStopPost=/usr/share/wlanwd/exit-ap-mode.sh
+

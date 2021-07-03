@@ -1,0 +1,12 @@
+[Unit]
+Description=wlanwd network watchdog
+Requires=network-online.target
+After=network-online.target
+OnFailure=wlanwd-ap.service
+
+[Service]
+ExecStart=/usr/share/wlanwd/test.sh
+
+[Install]
+WantedBy=multi-user.target
+

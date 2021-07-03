@@ -1,0 +1,12 @@
+[Unit]
+Description=wlanwd network watchdog timer
+Requires=network-online.target
+After=network-online.target
+
+[Timer]
+OnCalendar=*-*-* *:00/5:05
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target
+
