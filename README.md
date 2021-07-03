@@ -9,6 +9,7 @@ From a bare Raspbian install:
     $ chmod +x ./setup.sh
     $ sudo ./setup.sh
 
+If you are intalling to a system already in use, please examine this script carefully before executing, to ensure it will not clobber important settings.
 Expert users may be able to adapt this project to work on other Debian-like systems.
 Extreme caution should be taken.
 
