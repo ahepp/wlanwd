@@ -2,7 +2,6 @@
 
 cd $(dirname $0)
 apt-get install -y \
-    bsdutils \
     curl \
     dnsmasq \
     hostapd
