@@ -5,7 +5,7 @@ After=network-online.target
 OnFailure=wlanwd-ap.service
 
 [Service]
-ExecStart=/usr/share/wlanwd/test.sh
+ExecStart=/usr/bin/wlanwd test
 
 [Install]
 WantedBy=multi-user.target

@@ -5,6 +5,6 @@ After=network-online.target
 
 [Service]
 RemainAfterExit=yes
-ExecStart=/usr/share/wlanwd/enter-ap-mode.sh
-ExecStopPost=/usr/share/wlanwd/exit-ap-mode.sh
+ExecStart=/usr/bin/wlanwd enter-ap-mode
+ExecStopPost=/usr/bin/wlanwd exit-ap-mode
 
