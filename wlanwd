@@ -4,12 +4,12 @@ if [[ "$#" -ne 1 ]]; then
     echo "Usage: wlanwd [test/enter-ap-mode/exit-ap-mode]"
 fi
 
-if [[ "$1" -eq "test" ]] then
+if [[ "$1" == "test" ]]; then
     curl -s --connect-timeout 1 --retry 5 1.1.1.1
     exit $?
 fi
 
-if [[ "$1" -eq "enter-ap-mode" ]] then
+if [[ "$1" == "enter-ap-mode" ]]; then
     #systemctl stop wlanwd.timer
     systemctl stop dhcpcd.service
     systemctl stop wpa_supplicant.service
@@ -25,7 +25,7 @@ if [[ "$1" -eq "enter-ap-mode" ]] then
     exit
 fi
 
-if [[ "$1" -eq "exit-ap-mode" ]] then
+if [[ "$1" == "exit-ap-mode" ]]; then
     systemctl stop dnsmasq.service
     systemctl stop hostapd.service
 
