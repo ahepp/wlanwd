@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ "$#" -ne 1 ]]; then
+    echo "Usage: wlanwd [test/enter-ap-mode/exit-ap-mode]"
+fi
+
+if [[ "$1" == "test" ]]; then
+    curl -s --connect-timeout 1 --retry 5 1.1.1.1
+    exit $?
+fi
+
+if [[ "$1" == "enter-ap-mode" ]]; then
+    #systemctl stop wlanwd.timer
+    systemctl stop dhcpcd.service
+    systemctl stop wpa_supplicant.service
+
+    ifdown wlan0
+    ifup wlan0
+    ip addr flush dev wlan0 
+    ip addr add dev wlan0 192.168.1.2/16
+
+    systemctl start hostapd.service
+    systemctl start dnsmasq.service
+
+    exit
+fi
+
+if [[ "$1" == "exit-ap-mode" ]]; then
+    systemctl stop dnsmasq.service
+    systemctl stop hostapd.service
+
+    ifdown wlan0
+    ifup wlan0
+    ip addr flush dev wlan0 
+
+    systemctl start wpa_supplicant.service
+    systemctl start dhcpcd.service
+    #systemctl start wlanwd.timer
+
+    exit
+fi
