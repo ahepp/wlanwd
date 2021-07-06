@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [[ "$#" -ne 1 ]]; then
-    echo "Usage: wlanwd [test/enter-ap-mode/exit-ap-mode]"
-fi
-
 if [[ "$1" == "test" ]]; then
     curl -s --connect-timeout 1 --retry 5 1.1.1.1
     exit $?
@@ -39,3 +35,4 @@ if [[ "$1" == "exit-ap-mode" ]]; then
 
     exit
 fi
+echo "Usage: wlanwd [test/enter-ap-mode/exit-ap-mode]"
