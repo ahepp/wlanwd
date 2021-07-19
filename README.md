@@ -19,7 +19,7 @@ The default rescue network name is "rescue" with a password of "rescueme".
 Remote access through something like ssh must be separately enabled.
 Triggering wlanwd sets wlan0's IP address to 192.168.1.2/16.
 
-To exit rescue mode, execute `$ sudo systemctl stop wlanwd-ap.service`, or reboot the device with a configuration that will allow `wlanwd test` to successfully complete.
+To exit rescue mode, execute `$ sudo systemctl stop wlanwd-ap.service`, or reboot the device with a configuration that will allow `/usr/bin/wlanwd test` to successfully complete.
 
 ## About
 
@@ -32,6 +32,6 @@ Settings for the rescue wifi network are found in `conf/hostapd.conf` .
 
 DHCP settings for the rescue wifi network are found in `conf/dnsmasq.conf`.
 
-Watchdog trigger settings can be configured in `scripts/test.sh`.
+Watchdog trigger settings can be configured in `/usr/bin/wlanwd`, in the "test" case.
 For instance, you may prefer test your home router rather than an internet address.
 
