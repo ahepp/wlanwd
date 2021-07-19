@@ -19,7 +19,7 @@ The default rescue network name is "rescue" with a password of "rescueme".
 Remote access through something like ssh must be separately enabled.
 Triggering wlanwd sets wlan0's IP address to 192.168.1.2/16.
 
-To exit rescue mode, execute `$ sudo systemctl stop wlanwd-ap.service`, or reboot the device with a configuration that will allow `scripts/test.sh` to successfully complete.
+To exit rescue mode, execute `$ sudo systemctl stop wlanwd-ap.service`, or reboot the device with a configuration that will allow `wlanwd test` to successfully complete.
 
 ## About
 
